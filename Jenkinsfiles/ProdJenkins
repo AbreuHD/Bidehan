@@ -1,26 +1,18 @@
 pipeline {
-        agent { label 'Africa' }
+    agent { label 'Africa' }
     environment {
         NUGET_API_KEY = credentials('nuget_api_key')
-        NUGET_SERVER_URL = credentials('nuget_uri')
+        NUGET_SERVER_URL = credentials('nuget_server_url')
     }
 
     stages {
-
-        stage('Prepare environment') {
-            steps {
-                script {
-                    sh 'nuget help || echo "NuGet CLI is not installed. Be sure to install it."'
-                }
-            }
-        }
-
         stage('Restore dependencies') {
             steps {
                 echo 'Restoring project dependencies...'
                 sh 'dotnet restore Bidehan.sln'
             }
         }
+
         stage('Create NuGet package') {
             steps {
                 echo 'Packing the project...'
@@ -28,14 +20,15 @@ pipeline {
                 sh 'dotnet pack Application/Application.csproj --configuration Release --output ./nupkgs'
             }
         }
+
         stage('Publish NuGet package') {
             steps {
                 echo 'Uploading NuGet package to the repository...'
-                // Subir el paquete con dotnet
+                // Subir el paquete con dotnet usando las variables correctas
                 sh '''
                 dotnet nuget push ./nupkgs/*.nupkg \
-                    --source $NUGET_API_SOURCE \
-                    --api-key $NUGET_SERVER_URL
+                    --source $NUGET_SERVER_URL \
+                    --api-key $NUGET_API_KEY
                 '''
             }
         }
