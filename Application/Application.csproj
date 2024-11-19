@@ -4,6 +4,31 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Title>Bidehan</Title>
+    <Authors>Jefferson Abreu Martinez [AbreuHD]</Authors>
+    <Company>AbreuHD</Company>
+    <Product>Bidehan</Product>
+    <Description>Bidehan is a lightweight and efficient .NET library designed for scraping video streaming websites like fembed, streamvideo, and similar platforms. It allows developers to extract the direct MP4 source URL of videos hosted on these platforms. Perfect for creating automated workflows, downloading tools, or embedding videos with their original source links</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>mp4;video;scraper;scraping;streaming;direct-link;video-source;media;download;fembed;streamvideo;api;crawler;.NET;C#;media-extraction;video-downloader;source-fetcher</PackageTags>
+    <PackageReleaseNotes>Initial release of Bidehan.</PackageReleaseNotes>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <RepositoryUrl>https://github.com/AbreuHD/Bidehan</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/AbreuHD/Bidehan</PackageProjectUrl>
+	<AssemblyVersion>0.0.1</AssemblyVersion>
+	<PackageId>Bidehan</PackageId>
+	<Version>$(AssemblyVersion)</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>

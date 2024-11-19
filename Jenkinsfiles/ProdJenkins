@@ -31,8 +31,8 @@ pipeline {
 
         stage('Create NuGet package') {
             steps {
-                echo 'Creating NuGet package from nuspec file...'
-                sh 'nuget pack Bidehan.nuspec'
+                echo 'Creating NuGet package...'
+                sh 'dotnet pack Application/Application.csproj'
             }
         }
 
