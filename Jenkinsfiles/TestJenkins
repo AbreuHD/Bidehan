@@ -32,8 +32,8 @@ pipeline {
                 echo 'Uploading NuGet package to the repository...'
                 sh '''
                 dotnet nuget push ./nupkgs/*.nupkg \
-                    --source $PRIVATE_NUGET_API_SOURCE \
-                    --api-key $PRIVATE_NUGET_URI
+                    --source $NUGET_API_KEY \
+                    --api-key $NUGET_SERVER_URL
                 '''
             }
         }
