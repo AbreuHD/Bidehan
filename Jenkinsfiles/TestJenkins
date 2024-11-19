@@ -21,28 +21,19 @@ pipeline {
                 sh 'dotnet restore Bidehan.sln'
             }
         }
-
-        stage('Compile project') {
-            steps {
-                echo 'Compiling the project...'
-                sh 'dotnet build Bidehan.sln --configuration Release'
-            }
-        }
-
         stage('Create NuGet package') {
             steps {
-                echo 'Creating NuGet package...'
-                sh 'dotnet pack Application/Application.csproj'
+                echo 'Packing the project...'
+                sh 'dotnet pack Application/Application.csproj --configuration Release --output ./nupkgs'
             }
         }
-
         stage('Publish NuGet package') {
             steps {
                 echo 'Uploading NuGet package to the repository...'
                 sh '''
-                nuget push *.nupkg \
-                    -Source $NUGET_SOURCE \
-                    -ApiKey $NUGET_API_KEY
+                dotnet nuget push ./nupkgs/*.nupkg \
+                    --source $PRIVATE_NUGET_API_SOURCE \
+                    --api-key $PRIVATE_NUGET_URI
                 '''
             }
         }
