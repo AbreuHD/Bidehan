@@ -13,11 +13,13 @@ pipeline {
             }
         }
         stage('SonarQube Analysis') {
-            def scannerHome = tool 'SonarScanner for .NET'
-            withSonarQubeEnv() {
-                sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll begin /k:\"Bidehan\""
-                sh "dotnet build"
-                sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll end"
+            steps {
+                def scannerHome = tool 'SonarQ-DotNET8'
+                withSonarQubeEnv() {
+                    sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll begin /k:\"Bidehan\""
+                    sh "dotnet build"
+                    sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll end"
+                }
             }
        }
         stage('Create NuGet package') {
