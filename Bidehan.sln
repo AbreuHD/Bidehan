@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{C2646F8F-D389-4472-81E0-F756DBE07821}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{C2646F8F-D389-4472-81E0-F756DBE07821}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Jenkinsfiles", "Jenkinsfiles", "{7525885F-6758-422C-ABDD-8FD0EECD0B39}"
 	ProjectSection(SolutionItems) = preProject
@@ -13,8 +13,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Jenkinsfiles", "Jenkinsfile
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7CAD44B3-4F2F-43E3-8E6E-0BC831BDB014}"
 	ProjectSection(SolutionItems) = preProject
+		LICENSE.txt = LICENSE.txt
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDev", "TestDev\TestDev.csproj", "{6A44A20B-E1A7-414F-BEF4-1C6F11975E3E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +29,10 @@ Global
 		{C2646F8F-D389-4472-81E0-F756DBE07821}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2646F8F-D389-4472-81E0-F756DBE07821}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2646F8F-D389-4472-81E0-F756DBE07821}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A44A20B-E1A7-414F-BEF4-1C6F11975E3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A44A20B-E1A7-414F-BEF4-1C6F11975E3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A44A20B-E1A7-414F-BEF4-1C6F11975E3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A44A20B-E1A7-414F-BEF4-1C6F11975E3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -12,7 +12,14 @@ pipeline {
                 sh 'dotnet restore Bidehan.sln'
             }
         }
-
+        stage('SonarQube Analysis') {
+            def scannerHome = tool 'SonarScanner for .NET'
+            withSonarQubeEnv() {
+                sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll begin /k:\"Bidehan\""
+                sh "dotnet build"
+                sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll end"
+            }
+       }
         stage('Create NuGet package') {
             steps {
                 echo 'Packing the project...'
