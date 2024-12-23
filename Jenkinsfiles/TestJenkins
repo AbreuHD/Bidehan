@@ -3,7 +3,6 @@ pipeline {
     environment {
         NUGET_API_KEY = credentials('private_nuget_api_key')
         NUGET_SERVER_URL = credentials('private_nuget_uri')
-        SONARQUBE = 'SonarQ-DotNET8'
     }
 
     stages {
@@ -16,8 +15,8 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 script {
-                    def scannerHome = tool SONARQUBE
-                    withSonarQubeEnv(SonarQ) {
+                    def scannerHome = tool 'SonarQ-DotNET8'
+                    withSonarQubeEnv('SonarQ') {
                         sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll begin /k:\"Bidehan\""
                         sh "dotnet build"
                         sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll end"
